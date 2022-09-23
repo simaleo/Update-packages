@@ -2,21 +2,21 @@
 
 import os
 
-#Verification des packages a mettre a jours
+#Checking for packages to update
 #------------------------------------------
 
 os.system("apt list --upgradable | cut -f1 -d/ > data.txt")
 
-#Mise a jour des packages
-#------------------------
+#Package update
+#--------------
 
 x = open('data.txt', 'r', encoding = 'utf-8')
 
-mylinelist = [] # crée une liste vide (qui doit recueillir les mots)
+mylinelist = [] # create an empty list (which must collect the words)
 for line in x:
     mylinelist.append(line.strip())
 
-mylinelist.pop(0) # suppression du premier element de la liste car c'est le resultat de la commande precedante 
+mylinelist.pop(0) # deletion of the first element of the list because it is the result of the previous command 
 
 i = 0
 while i <= len(mylinelist):

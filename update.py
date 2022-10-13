@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import time
 
 #Checking for packages to update
 #------------------------------------------
@@ -18,6 +19,7 @@ for line in x:
 
 mylinelist.pop(0) # deletion of the first element of the list because it is the result of the previous command 
 
+
 i = 0
 while i <= len(mylinelist):
     if len(mylinelist) == 0:
@@ -29,15 +31,16 @@ while i <= len(mylinelist):
         os.system(f"sudo aptitude safe-upgrade")
         os.system(f"sudo aptitude full-upgrade")
 
-        x.close()
         os.system('clear')
-
-        print(f"---------------succesfull install {i}-----------------\n")
+        
+        print(f"---------------succesfull install {mylinelist[i]}-----------------\n")
+    
+    x.close()
+    os.system("rm -r data.txt")    
+    time.sleep(6)   
     i += 1
     
-os.system("rm -r data.txt")
 
-   
     
     
 
